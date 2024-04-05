@@ -8,14 +8,20 @@
   body, html {
     height: 100%;
     margin: 0;
-    padding: 20px; /* 添加边距 */
+    padding: 0; /* 移除边距以防止滚动 */
     display: flex;
-    flex-direction: column; /* 改变主轴方向为垂直 */
+    flex-direction: column; /* 主轴方向为垂直 */
     justify-content: center;
     align-items: center;
-    background-color: #333; /* 背景颜色调整为深灰色 */
+    background-color: #333; /* 背景颜色为深灰色 */
     color: #fff;
     font-family: 'Arial', sans-serif;
+    overflow: hidden; /* 防止页面滚动 */
+  }
+  .loading-image {
+    width: 300px; /* 加载图片的大小为300px */
+    height: auto;
+    margin-bottom: 20px; /* 图片与加载动画之间的间隔 */
   }
   .loader {
     border: 5px solid #f3f3f3;
@@ -23,17 +29,27 @@
     border-top: 5px solid #3498db;
     width: 50px;
     height: 50px;
-    animation: spin 2s linear infinite;
     margin-bottom: 20px; /* 加载动画与文字提示之间的间隔 */
+    animation: spin 2s linear infinite;
   }
   @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+  /* 确保在横竖屏切换时布局正常 */
+  @media (orientation: landscape) {
+    body, html {
+      /* 移除 flex-direction: row; 以保持垂直排列 */
+      justify-content: space-around; /* 元素间隔均匀分布 */
+    }
+    .loading-image, .loader {
+      margin: 0; /* 横屏时移除边距 */
+    }
+  }
 </style>
 </head>
 <body>
-<img src="https://img2.imgtp.com/2024/04/05/EpWBX0QE.png" alt="空状态_加载中" title="空状态_加载中" />
+<img class="loading-image" src="https://img2.imgtp.com/2024/04/05/EpWBX0QE.png" alt="加载中" />
 <div class="loader"></div>
 <p>游戏正在加载中，请等待...</p>
 <script>
