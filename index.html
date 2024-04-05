@@ -8,42 +8,38 @@
   body, html {
     height: 100%;
     margin: 0;
-    padding: 0; /* 移除边距以防止滚动 */
+    padding: 0;
     display: flex;
-    flex-direction: column; /* 主轴方向为垂直 */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #333; /* 背景颜色为深灰色 */
+    background-color: #333;
     color: #fff;
     font-family: 'Arial', sans-serif;
-    overflow: hidden; /* 防止页面滚动 */
-  }
-  .loading-image {
-    width: 300px; /* 加载图片的大小为300px */
-    height: auto;
-    margin-bottom: 20px; /* 图片与加载动画之间的间隔 */
+    overflow: hidden;
   }
   .loader {
-    border: 5px solid #f3f3f3;
+    border: 16px solid #f3f3f3; /* 设置圆环的颜色 */
+    border-top: 16px solid #3498db; /* 设置圆环的上边框颜色，这里以蓝色为例 */
     border-radius: 50%;
-    border-top: 5px solid #3498db;
-    width: 50px;
-    height: 50px;
-    margin-bottom: 20px; /* 加载动画与文字提示之间的间隔 */
+    width: 20px;
+    height: 20px;
     animation: spin 2s linear infinite;
   }
   @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
-  /* 确保在横竖屏切换时布局正常 */
+  .loading-image {
+    width: 300px;
+    height:300px;
+  }
   @media (orientation: landscape) {
     body, html {
-      /* 移除 flex-direction: row; 以保持垂直排列 */
-      justify-content: space-around; /* 元素间隔均匀分布 */
+      justify-content: space-around;
     }
     .loading-image, .loader {
-      margin: 0; /* 横屏时移除边距 */
+      margin: 0;
     }
   }
 </style>
