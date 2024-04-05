@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>游戏加载中</title>
+<style>
+  body, html {
+    height: 100%;
+    margin: 0;
+    padding: 20px; /* 添加边距 */
+    display: flex;
+    flex-direction: column; /* 改变主轴方向为垂直 */
+    justify-content: center;
+    align-items: center;
+    background-color: #333; /* 背景颜色调整为深灰色 */
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+  }
+  .loader {
+    border: 5px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 5px solid #3498db;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+    margin-bottom: 20px; /* 加载动画与文字提示之间的间隔 */
+  }
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+</style>
+</head>
+<body>
+<img src="https://img2.imgtp.com/2024/04/05/EpWBX0QE.png" alt="空状态_加载中" title="空状态_加载中" />
+<div class="loader"></div>
+<p>游戏正在加载中，请等待...</p>
+<script>
+  // 这里可以添加一些JS代码来控制加载动画的开始和结束
+</script>
+</body>
+</html>
